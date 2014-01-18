@@ -6,11 +6,10 @@ gameOptions = {
   padding: 20
 };
 
-
+// How can I center this?
 var gameBoard = d3.select('body').append('svg:svg')
     .attr('width', gameOptions.width)
     .attr('height', gameOptions.height)
-    .attr('backgroun-posistion', 50% 50%)
     .style('background', '#1240AB');
 
   // returns array of objects with enemy properites
@@ -41,6 +40,20 @@ var axes = {
         .attr('class', 'enemy')
         .attr('cx', function(enemy) {return axes.x(enemy.x);})
         .attr('cy', function(enemy) {return axes.y(enemy.y);})
-        .attr('r', 20);
-    enemies.exit().remove();
+        .attr('r', 10);
+    //enemies.exit().remove();
+
+    var newPosition = function() {
+    return _.range(0, gameOptions.nEnemies).map(function(i) {
+      return {
+        x: Math.random() * 100,
+        y: Math.random() * 100
+      };
+    });
+  };
+
+    enemies.transition().duration(1000)
+        .attr('cx', function(d,i) {return Math.random() * gameOptions.width;})
+        .attr('cy', function(d,i) {return Math.random() * gameOptions.height;});
+
 
