@@ -6,3 +6,14 @@ body{
   height: 32px;
   background-color: #5C5A8D;
 }
+
+/* some css to format gameBoard if needed later
+#mapContainer svg {
+    display:block;
+    margin:0 auto;
+}
+#mapContainer path {
+  fill:#DDD;
+  stroke:#FFF;
+}
+*/
