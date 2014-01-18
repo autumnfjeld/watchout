@@ -1,0 +1,52 @@
+<DOCTYPE! html>
+<html>
+<head>
+</head>
+
+<body>
+  <script src="http://d3js.org/d3.v2.min.js?2.10.1"></script>
+<script>
+
+var radii = [10,20,30,40,60,70,80,90,50];
+
+ //Make an SVG Container
+ var svgContainer = d3.select("body").append("svg")
+                                     .attr("width", 500)
+                                     .attr("height", 500);
+
+ //Draw the Circle
+var circle = svgContainer.append("circle")
+                         .attr("cx", 30)
+                         .attr("cy", 30)
+                         .attr("r", 20);
+
+var circles = svgContainer.selectAll("circle")
+    .data(radii)
+    .enter()
+    .append("circle");
+
+var circleAttributes = circles
+                       .attr("cx", 50)
+                       .attr("cy", 50)
+                       .attr("r", function (d) { return d; })
+                       .style("fill", "green");
+
+var theData = [ 1, 2, 3 ]
+
+var p = d3.select("body").selectAll("p")
+  .data(theData)
+  .enter()
+  .append("p")
+  .text("hello ");
+</script>
+
+
+
+
+  <div class='stuff'>  Stuff in first div </div>
+  <text class='things'> Things in text tag </text>
+
+
+
+</body>
+</html>
